@@ -19,3 +19,14 @@ end
 ```
 rails g rspec:install
 ```
+
+**Configure Capybara**
+```
+# spec/rails_helper.rb
+require 'capybara/rails'
+
+mkdir spec/features
+```
+
+**Configure database_cleaner**
+```
