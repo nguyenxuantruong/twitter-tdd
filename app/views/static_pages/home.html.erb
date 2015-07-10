@@ -4,4 +4,7 @@
   <a href="http://www.twitter.com/">Twitter</a>
   Twitter Application.
 </p>
-<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<% if !logged_in? %>
+	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<% end %>
+
