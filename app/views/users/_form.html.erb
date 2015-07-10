@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div
-  <div class="field">
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="field form-group">
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
