@@ -17,6 +17,7 @@ RSpec.describe User, :type => :model do
     user = build(:user_mismatch)
     expect(user).not_to be_valid
   end
+  it { should have_many(:statuses) }
 
   describe "when email format is invalid" do
     it "should be invalid" do
