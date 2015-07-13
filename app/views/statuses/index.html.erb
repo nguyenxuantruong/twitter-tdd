@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statuses</h1>
+<%= link_to 'New Status', new_user_status_path %>
+
+<table>
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><b><%= "#{@user.email}" %></b> said: </td>
+      </tr>
+      <tr>
+        <td><%= status.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
