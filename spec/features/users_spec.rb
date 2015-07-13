@@ -25,6 +25,13 @@ RSpec.feature "User manager", :type => :feature do
 		find('#session_password').set(@user_attributes[:password])
 		click_button 'Log in'
 		expect(page).to have_text("Logged in !!!")
-		expect(page).to have_text(@user_attributes[:email])
+		expect(page).to have_text("Listing Statuses")
+	end
+
+	scenario "Logout" do
+		user = User.create(@user_attributes)
+		log_in(user)
+		click_link "Logout"
+		expect(page).to have_text("Logged out !!!")
 	end
 end

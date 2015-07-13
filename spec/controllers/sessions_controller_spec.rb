@@ -9,7 +9,7 @@ RSpec.describe SessionsController, type: :controller do
         post :create, :session => {:email => @user.email, :password => @user.password}
       end
       it "should redirect the user to the user url" do
-        expect(response).to redirect_to user_url(@user)
+        expect(response).to redirect_to user_statuses_url(@user)
       end
     end
     describe "User hasn't loged in yet" do
@@ -34,7 +34,7 @@ RSpec.describe SessionsController, type: :controller do
 
     it "should redirect the user to the user url" do
       post :create, :session => @session_attr
-      expect(response).to redirect_to user_url(@user)
+      expect(response).to redirect_to user_statuses_url(@user)
     end
   end
 
