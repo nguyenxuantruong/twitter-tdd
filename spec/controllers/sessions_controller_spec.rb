@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
 
   describe "GET #new" do
-    context "User has loged in" do
+    describe "User has loged in" do
       before do
         @user = create(:user)
         post :create, :session => {:email => @user.email, :password => @user.password}
@@ -12,7 +12,7 @@ RSpec.describe SessionsController, type: :controller do
         expect(response).to redirect_to user_url(@user)
       end
     end
-    context "User hasn't loged in" do
+    describe "User hasn't loged in yet" do
       it "renders the :new template" do
         get :new
         expect(response).to render_template :new
