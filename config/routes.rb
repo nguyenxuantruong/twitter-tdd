@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'searchs/hashtag' => 'searchs#search_by_hashtag'
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

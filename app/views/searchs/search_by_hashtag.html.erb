@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statuses by <a href="#"><%="##{@tagname}"%></a></h1>
+
+<table>
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><b><%= "#{status.user.email}" %></b> said: </td>
+      </tr>
+      <tr>
+        <td><%= render_with_hashtags(status.content) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+

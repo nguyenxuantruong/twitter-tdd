@@ -22,7 +22,7 @@ module StatusesHelper
     	tag_word = word[1, word.length]
       if tags.include? (tag_word)
       	hashtag = Hashtag.find_by_name(tag_word)
-        link_to "##{hashtag.name}", hashtag_path(hashtag.name)
+        link_to "##{hashtag.name}", searchs_hashtag_path + "?tagname=#{hashtag.name}"
       else
         word
       end
