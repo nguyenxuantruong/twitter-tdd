@@ -5,9 +5,12 @@ module StatusesHelper
 	def add_hashtag (post, content)
 		tags = (content.scan REGEX_TAG).join(" ").split(' ')
 		tags.each do |tag|
-			if Hashtag.find_by_name(tag).nil?
+			exist_tag = Hashtag.find_by_name(tag)
+			if exist_tag.nil?
 				hashtag = Hashtag.create(:name => tag)
 				post.hashtags << hashtag
+			else
+				post.hashtags << exist_tag
 			end
 		end
 	end
