@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'signup' => 'users#new'
 
+  resources :hashtags, only: [:show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

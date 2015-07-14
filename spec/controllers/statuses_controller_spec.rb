@@ -29,8 +29,11 @@ RSpec.describe StatusesController, type: :controller do
     describe "with valid params" do
       it "saves the new status in the database" do
         expect {
-          post :create, {:user_id => @user.id, :status => attributes_for(:status)}
+          post :create, {:user_id => @user.id, :status => attributes_for(:status)}    # include 2 hashtag
         }.to change(Status, :count).by(1)
+
+        # verify adding hashtag
+        expect(@user.statuses.last.hashtags.count).to eq 2
       end
 
       it "redirect to user profile - statuses page" do

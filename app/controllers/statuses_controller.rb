@@ -1,4 +1,6 @@
 class StatusesController < ApplicationController
+  include StatusesHelper
+
 	before_action :require_login, only: [:new]
 
   def new
@@ -12,6 +14,8 @@ class StatusesController < ApplicationController
     @status.user_id = params[:user_id]
     respond_to do |format|
       if @status.save
+        # add hashtag into @post
+        add_hashtag(@status, status_params[:content])
       	flash[:success] = "Status was successfully created."
         format.html { redirect_to user_statuses_path }
       else

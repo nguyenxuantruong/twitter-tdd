@@ -17,12 +17,6 @@ RSpec.feature "Status manager", :type => :feature do
 	end
 
 	scenario "post new status - user logged in" do
-		# visit root_url
-		# click_link "Log in"
-		# expect(page).to have_text("Log in")
-		# find('#session_email').set(@user_attributes[:email])
-		# find('#session_password').set(@user_attributes[:password])
-		# click_button "Log in"
 		log_in(@user)
 
 		# login successfully

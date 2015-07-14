@@ -10,11 +10,10 @@
         <td><b><%= "#{@user.email}" %></b> said: </td>
       </tr>
       <tr>
-        <td><%= status.content %></td>
+        <td><%= render_with_hashtags(status.content) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 

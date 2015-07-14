@@ -3,6 +3,6 @@ require 'faker'
 
 FactoryGirl.define do
   factory :status do
-    content Faker::Lorem.sentence
+    content Faker::Lorem.sentence + " #" + Faker::Commerce.color + " #" + Faker::Commerce.color
   end
 end
