@@ -1,61 +1,17 @@
 # Twitter Project follow TDD
 
-## Delopment
-### Step 1: Generate new project
+## How to run App
+### Step 0: Setup RoR environment
+
+### Step 1: Clone code and run commands in root path
 ```
-rails new twitter-tdd
+bundle install
+rake db:create db:migrate
+rails s -b 0.0.0.0
 ```
+You can access app at [http://localhost:3000](http://localhost:3000)
 
-### Step 2: Configure your Gemfile
+## How to run test for app
 ```
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'database_cleaner'
-end
-```
-**Run generators**
-```
-rails g rspec:install
-```
-
-**Configure Capybara**
-*# spec/rails_helper.rb*
-
-```
-require 'capybara/rails'
-
-mkdir spec/features
-```
-
-**Configure database_cleaner and Include the factory_girl methods**
-*#	 spec/rails_helper.rb*
-
-```
-RSpec.configure do |config|
-
-	config.include FactoryGirl::Syntax::Methods
-
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
-
-end
+rspec
 ```
