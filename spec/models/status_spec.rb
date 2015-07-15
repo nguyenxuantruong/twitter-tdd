@@ -13,4 +13,5 @@ RSpec.describe Status, type: :model do
   it { should validate_presence_of(:content) }
   it { should belong_to(:user) }
   it { should have_and_belong_to_many(:hashtags) }
+  it { should ensure_length_of(:content).is_at_most(160) }
 end
